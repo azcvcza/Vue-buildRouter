@@ -21,8 +21,13 @@ const View ={
   template:`<component :is=currentView></component>`,
   data:()=>{
     return {
-      currentView:A
+      currentView:{}
     }
+  },
+  created(){
+    this.currentView = routes.find(
+      route => route.path === window.location.pathname
+    ).component;
   }
 }
 export default {
