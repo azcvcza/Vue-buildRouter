@@ -19,10 +19,14 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+  //
 	import A from "./components/A";
 	import B from "./components/B";
 	import C from "./components/C";
-	//import View from './components/View'
+  //import View from './components/View'
+  //build Event Bus
+  const EventBus = new Vue();
 	//View
 	const View = {
 		name: "router-view",
@@ -43,7 +47,10 @@
 				};
 			} else {
 				this.currentView = this.getRouteObject().component;
-			}
+      }
+      EventBus.$on('navigate',()=>{
+        this.currentView = this.getRouteObject().component;
+      })
 		},
 		methods: {
 			getRouteObject() {
@@ -66,7 +73,8 @@
 		methods: {
 			navigate(evt) {
 				evt.preventDefault();
-				window.history.pushState(null, null, this.to);
+        window.history.pushState(null, null, this.to);
+        EventBus.$emit('navigate');
 			}
 		}
 	};
