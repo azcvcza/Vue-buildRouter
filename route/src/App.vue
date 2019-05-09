@@ -92,7 +92,10 @@
 			"router-view": View,
 			"router-link": Link
 		}
-	};
+  };
+  window.addEventListener('popstate',()=>{
+    EventBus.$emit('navigate')
+  })
 </script>
 
 <style>
