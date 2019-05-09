@@ -10,12 +10,12 @@
 
 <script>
 export default {
-  name: 'A',
+  name: 'C',
   data () {
     return {
-      name: 'A a a a ',
-      type:'fire',
-      weight:'199LB',
+      name: 'C c c c ',
+      type:'ground',
+      weight:'179LB',
       height:'1.7M'
     }
   }

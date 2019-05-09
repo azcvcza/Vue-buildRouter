@@ -10,13 +10,13 @@
 
 <script>
 export default {
-  name: 'A',
+  name: 'B',
   data () {
     return {
-      name: 'A a a a ',
-      type:'fire',
-      weight:'199LB',
-      height:'1.7M'
+      name: 'B b b b ',
+      type:'water',
+      weight:'189LB',
+      height:'1.8M'
     }
   }
 }
