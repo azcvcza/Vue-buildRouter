@@ -24,10 +24,25 @@ const View ={
       currentView:{}
     }
   },
-  created(){
-    this.currentView = routes.find(
-      route => route.path === window.location.pathname
-    ).component;
+  created() {
+    if (this.getRouteObject() === undefined) {
+      this.currentView = {
+        template: `
+          <h3 class="subtitle has-text-white">
+            Not Found :(. Pick a Pokémon from the list below!
+          </h3>
+        `
+      };
+    } else {
+      this.currentView = this.getRouteObject().component;
+    }
+  },
+  methods: {
+    getRouteObject() {
+      return routes.find(
+        route => route.path === window.location.pathname
+      );
+    }
   }
 }
 export default {
